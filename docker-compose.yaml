@@ -1,8 +1,12 @@
 version: '2'
 services:
   xendit-mongo:
+   environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: xendit123
    image: gcr.io/xendit-trial/xendit-mongo:latest
    build:
       context: .
+   command: [--auth]
    ports:
      - "27017:27017"
