@@ -1,0 +1,8 @@
+version: '2'
+services:
+  xendit-mongo:
+   image: gcr.io/xendit-trial/xendit-mongo:latest
+   build:
+      context: .
+   ports:
+     - "27017:27017"
