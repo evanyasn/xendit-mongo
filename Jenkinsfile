@@ -12,6 +12,7 @@ pipeline {
       stage('build') {
         steps {
           sh "sed -i \'s:latest:${tag_ver}:\' docker-compose.yaml"
+          sh "export DOCKER_HOST=127.0.0.1"
           sh "docker-compose -f docker-compose.yaml build"
           sh "docker images"
         }
